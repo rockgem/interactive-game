@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/actors/SpeechBubble.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "pop"
+length = 0.3
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.1, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.14, 0.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rect_scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.1, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.14, 0.2 )
+}
 
 [node name="SpeechBubble" type="TextureRect"]
 margin_right = 300.0
@@ -8,9 +33,17 @@ margin_bottom = 170.0
 rect_min_size = Vector2( 1, 1 )
 expand = true
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Line2D" type="Line2D" parent="."]
 visible = false
 points = PoolVector2Array( 30.5, 52.75, 77.3782, 95.0059 )
 default_color = Color( 1, 1, 1, 1 )
 texture_mode = 2
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/pop = SubResource( 1 )

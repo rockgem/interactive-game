@@ -11,15 +11,17 @@ export(String) var speech_id: String
 func _ready():
 	ManagerGameManager.connect("speech_pop", self, "speech_pop")
 	ManagerGameManager.connect("stopper_activate", self, "hide")
+	
+	rect_pivot_offset.x = rect_size.x / 2
+	rect_pivot_offset.y = rect_size.y / 2
 
 
 func speech_pop(id: String):
 	if id == speech_id:
 		show()
-		set_physics_process(true)
+		$AnimationPlayer.play("pop")
 	else:
 		hide()
-		set_physics_process(false)
 
 
 func init_from_stopper(message: String):

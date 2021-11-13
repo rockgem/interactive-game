@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://actors/entity/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/ui/level1story/08.jpg" type="Texture" id=2]
@@ -17,15 +17,20 @@
 [ext_resource path="res://assets/ui/level1story/010.jpg" type="Texture" id=15]
 [ext_resource path="res://assets/ui/level1story/07.jpg" type="Texture" id=16]
 [ext_resource path="res://assets/ui/level1story/012.jpg" type="Texture" id=17]
+[ext_resource path="res://assets/ui/level1story/010_1.jpg" type="Texture" id=18]
+[ext_resource path="res://assets/scene/01_top.png" type="Texture" id=19]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 66.14, 95.205 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 21.2585, 95.205 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 106.036, 95.205 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 15.1402, 333.598 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 10 )
@@ -33,17 +38,22 @@ script = ExtResource( 10 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SlideshowHolder" parent="CanvasLayer" instance=ExtResource( 11 )]
-margin_left = 209.862
+margin_left = 110.65
 margin_top = 24.0
-margin_right = 1060.86
+margin_right = 961.65
 margin_bottom = 571.0
-textures_arr = [ ExtResource( 16 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 12 ) ]
+textures_arr = [ ExtResource( 16 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 12 ) ]
+level_id = "Level1"
 
-[node name="Back" type="TextureRect" parent="."]
-margin_left = 3.16522
+[node name="Area1" type="Node2D" parent="."]
+position = Vector2( -719.835, 0 )
+
+[node name="Back" type="TextureRect" parent="Area1"]
+margin_left = 723.0
 margin_top = 4.17841
-margin_right = 1070.17
+margin_right = 1790.0
 margin_bottom = 594.178
+mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
@@ -51,14 +61,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area1" type="Node2D" parent="."]
-position = Vector2( -719.835, 0 )
-
 [node name="Player" parent="Area1" instance=ExtResource( 1 )]
 position = Vector2( 984.127, 336.153 )
 
-[node name="Camera2D" parent="Area1/Player" index="1"]
+[node name="Camera2D" parent="Area1/Player" index="2"]
 position = Vector2( -0.512939, -40.6013 )
+
+[node name="Back2" type="TextureRect" parent="Area1"]
+margin_left = 723.0
+margin_top = 4.17841
+margin_right = 1790.0
+margin_bottom = 594.178
+mouse_filter = 2
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SpeechBubble" parent="Area1" instance=ExtResource( 3 )]
 visible = false
@@ -92,30 +112,44 @@ position = Vector2( 1221.51, 407.225 )
 speech_id = "sp_1"
 
 [node name="CollisionShape2D" parent="Area1/Area2D" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Area2D2" parent="Area1" instance=ExtResource( 4 )]
 position = Vector2( 1374.05, 407.225 )
 speech_id = "sp_2"
 
 [node name="CollisionShape2D" parent="Area1/Area2D2" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Area2D3" parent="Area1" instance=ExtResource( 4 )]
 position = Vector2( 1549.9, 404.627 )
 speech_id = "sp_3"
 
 [node name="CollisionShape2D" parent="Area1/Area2D3" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
-[node name="VisualStoryTrigger" parent="Area1" instance=ExtResource( 9 )]
-position = Vector2( 1513.49, 351.122 )
+[node name="VisualStoryTrigger2" parent="Area1" instance=ExtResource( 9 )]
+position = Vector2( 1295.22, 281.276 )
 
 [node name="TopLeft" type="Position2D" parent="."]
 position = Vector2( 142.428, 1.59661 )
 
 [node name="BottomRight" type="Position2D" parent="."]
 position = Vector2( 929.536, 593.767 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 139.693, 315.254 )
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 4 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 793.703, 315.254 )
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 4 )
 
 [editable path="Area1/Player"]
 [editable path="Area1/Area2D"]

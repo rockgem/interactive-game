@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/detectors/VisualStoryTrigger.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.6124
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
 
 [node name="VisualStoryTrigger" type="Area2D"]
 collision_layer = 2
@@ -15,6 +23,23 @@ shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -60.1428
+margin_top = -124.878
+margin_right = 60.8572
+margin_bottom = -74.8782
+custom_styles/normal = SubResource( 2 )
+text = "Click me"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="area_entered" from="." to="." method="_on_VisualStoryTrigger_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_VisualStoryTrigger_area_exited"]
+[connection signal="input_event" from="." to="." method="_on_VisualStoryTrigger_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_VisualStoryTrigger_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_VisualStoryTrigger_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
