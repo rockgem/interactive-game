@@ -1,7 +1,9 @@
 extends Area2D
 
+export(int) var slide_id = 0
 
 var index = 0
+var num = 0
 
 
 func _ready():
@@ -13,7 +15,7 @@ func move(num: int):
 	index += num
 	
 	if index <= 0:
-		visual_story_deactivate()
+#		visual_story_deactivate()
 		return
 	
 	ManagerGameManager.emit_signal("increase", index, num)
@@ -21,13 +23,11 @@ func move(num: int):
 
 func visual_story_deactivate():
 	ManagerGameManager.can_move = true
-	$CollisionShape2D.disabled = true
-	$Timer.start(.2)
 
 
 func _on_VisualStoryTrigger_area_entered(area):
 	ManagerGameManager.can_move = false
-	ManagerGameManager.emit_signal("visual_story_trigger")
+	ManagerGameManager.emit_signal("visual_story_trigger", slide_id)
 
 
 func _on_VisualStoryTrigger_area_exited(area):
@@ -42,7 +42,8 @@ func _on_Timer_timeout():
 func _on_VisualStoryTrigger_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 		ManagerGameManager.can_move = false
-		ManagerGameManager.emit_signal("visual_story_trigger")
+		ManagerGameManager.emit_signal("visual_story_trigger", slide_id)
+		$"/root/Click".play()
 
 
 func _on_VisualStoryTrigger_mouse_entered():

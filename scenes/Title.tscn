@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://actors/ui/LevelHolder.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/ui/Title.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/title/011.jpg" type="Texture" id=3]
 [ext_resource path="res://assets/ui/level2story/004.jpg" type="Texture" id=4]
 [ext_resource path="res://scenes/Loading.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/scene/background-02.jpg" type="Texture" id=6]
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
@@ -25,10 +26,10 @@ __meta__ = {
 
 [node name="Loading" parent="CanvasLayer" instance=ExtResource( 5 )]
 visible = false
-margin_left = 247.175
-margin_top = 244.384
-margin_right = 795.175
-margin_bottom = 357.384
+margin_left = 247.0
+margin_top = 244.0
+margin_right = 795.0
+margin_bottom = 382.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.5
@@ -53,10 +54,10 @@ margin_bottom = 41.5
 texture = ExtResource( 3 )
 
 [node name="Label" parent="HBoxContainer/Panel" index="1"]
-margin_left = 7.08685
-margin_top = 94.7904
-margin_right = -5.91315
-margin_bottom = 214.791
+margin_left = -7.0
+margin_top = 149.031
+margin_right = 6.0
+margin_bottom = 183.031
 text = "Part 1 Mbambi"
 
 [node name="Panel2" parent="HBoxContainer" instance=ExtResource( 1 )]
@@ -72,18 +73,30 @@ margin_bottom = 134.964
 texture = ExtResource( 4 )
 
 [node name="Label" parent="HBoxContainer/Panel2" index="1"]
-margin_left = 14.7057
-margin_top = 93.311
-margin_right = -7.29427
-margin_bottom = 213.311
+margin_left = 15.0
+margin_top = 149.031
+margin_right = -7.0
+margin_bottom = 183.031
 text = "Part 2 Raha"
 
 [node name="Panel3" parent="HBoxContainer" instance=ExtResource( 1 )]
 margin_left = 528.0
 margin_right = 728.0
+level_id = "Level3"
+
+[node name="TextureRect" parent="HBoxContainer/Panel3/Panel" index="0"]
+margin_left = -120.953
+margin_top = -130.545
+margin_right = 136.047
+margin_bottom = 126.455
+texture = ExtResource( 6 )
 
 [node name="Label" parent="HBoxContainer/Panel3" index="1"]
-text = "Part 3"
+margin_left = 13.0
+margin_top = 149.031
+margin_right = -9.0
+margin_bottom = 183.031
+text = "Part 3 Neema"
 
 [editable path="HBoxContainer/Panel"]
 [editable path="HBoxContainer/Panel2"]

@@ -1,6 +1,8 @@
 extends Node2D
 
 
+signal arrow_show
+
 
 func _ready():
 	pass

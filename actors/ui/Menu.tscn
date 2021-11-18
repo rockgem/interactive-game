@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/actors/Menu.gd" type="Script" id=1]
+
+[node name="Menu" type="Panel"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -121.299
+margin_top = 116.542
+margin_right = 117.701
+margin_bottom = 318.542
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+margin_left = 20.1433
+margin_top = 41.7937
+margin_right = -20.8567
+margin_bottom = 133.794
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+margin_right = 198.0
+margin_bottom = 44.0
+mouse_default_cursor_shape = 2
+text = "Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 198.0
+margin_bottom = 92.0
+mouse_default_cursor_shape = 2
+text = "Settings"
+
+[node name="Close" type="Button" parent="VBoxContainer"]
+margin_top = 96.0
+margin_right = 198.0
+margin_bottom = 140.0
+mouse_default_cursor_shape = 2
+text = "Close"
+
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_Close_pressed"]

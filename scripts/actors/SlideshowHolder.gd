@@ -3,6 +3,7 @@ extends Control
 
 
 export(Array, Texture) var textures_arr: Array = []
+export(int) var slide_id = 0
 
 var sub_count: int = 0
 var current_index: int = 0
@@ -11,6 +12,8 @@ var can_click = false
 
 export(String) var level_id = "Level0"
 
+export(bool) var is_last = false
+export(String) var towards_level_id = ""
 
 
 func _ready():
@@ -30,6 +33,11 @@ func increase(num: int, num_identifier: int):
 	
 	if num > textures_arr.size():
 		ManagerGameManager.emit_signal("visual_story_deactivate")
+		if is_last:
+			if towards_level_id != "":
+				ManagerGameManager.emit_signal("load_level_activate", towards_level_id)
+				return
+		
 		return
 	
 	if num_identifier > 0:
@@ -40,11 +48,11 @@ func increase(num: int, num_identifier: int):
 		$Tween.start()
 	
 	if level_id == "Level1" and num == 7:
-		$OptionalAnimatedTexture.texture = load("res://assets/ui/popups/sub count preview.PNG")
-		$OptionalAnimatedTexture.show()
-		$OptionalAnimatedTexture/Tween.interpolate_property(self, "sub_count", 0, 100000, 1.5,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
-		$OptionalAnimatedTexture/Tween.start()
-		$OptionalAnimatedTexture/Label.show()
+		$AnimatedSprite.show()
+		$AnimatedSprite.play("subcount")
+	elif level_id == "Level1" and num == 8:
+		$AnimatedSprite.show()
+		$AnimatedSprite.play("ads")
 	elif level_id == "Level2" and num == 5:
 		$OptionalAnimatedTexture.texture = load("res://assets/ui/popups/search.PNG")
 		$OptionalAnimatedTexture.show()
@@ -60,6 +68,8 @@ func increase(num: int, num_identifier: int):
 		$OptionalAnimatedTexture/Tween.start()
 		$OptionalAnimatedTexture/SearchbarTyping.show()
 	else:
+		$AnimatedSprite.hide()
+		$AnimatedSprite.stop()
 		$OptionalAnimatedTexture.hide()
 		$OptionalAnimatedTexture/SearchbarTyping.hide()
 		$OptionalAnimatedTexture/Label.hide()
@@ -67,13 +77,17 @@ func increase(num: int, num_identifier: int):
 	$TextureRect.texture = textures_arr[num - 1]
 
 
-func visual_story_trigger():
+func visual_story_trigger(id: int):
+	if id != slide_id:
+		return
 	can_click = true
 	show()
 	increase(1, 1)
 
 
 func visual_story_deactivate():
+	if slide_id == 1:
+		ManagerGameManager.emit_signal("arrow_indicator")
 	$Label2.hide()
 	$TextureRect.texture = null
 	can_click = false
@@ -93,3 +107,4 @@ func _on_SlideshowHolder_gui_input(event):
 	if can_click:
 		if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 			increase(current_index + 1, 1)
+			$"/root/SwooshSfx".play()

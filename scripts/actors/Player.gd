@@ -9,6 +9,7 @@ var move_speed = 140
 var velocity = Vector2.ZERO
 var dir = DIRECTION.RIGHT
 
+var foot_active: bool = false
 
 func _physics_process(delta):
 	velocity = Vector2.ZERO
@@ -25,6 +26,9 @@ func _physics_process(delta):
 			$Sprite.flip_h = true
 		
 		velocity = move_and_slide(velocity * move_speed)
+		if velocity.x != 0 && !$Footstep.playing && foot_active:
+			$Footstep.play()
+			foot_active = false
 
 
 #func _input(event):
@@ -54,4 +58,5 @@ func set_camera_bounds(top_left: Vector2, bottom_right: Vector2):
 
 
 func _on_Sprite_animation_finished():
+	foot_active = true
 	$Sprite.play("idle")

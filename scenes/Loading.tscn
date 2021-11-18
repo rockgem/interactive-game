@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/actors/Loading.gd" type="Script" id=1]
 
@@ -12,10 +12,12 @@ border_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0, 0, 0, 1 )
+[sub_resource type="StyleBoxEmpty" id=3]
 
 [sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -24,8 +26,8 @@ border_width_bottom = 2
 border_color = Color( 0, 0, 0, 1 )
 
 [node name="Loading" type="Panel"]
-margin_right = 306.0
-margin_bottom = 107.0
+margin_right = 374.0
+margin_bottom = 121.0
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -46,14 +48,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="Label2" type="Label" parent="."]
 anchor_right = 1.0
+margin_left = 62.0
+margin_top = 31.0
+margin_right = -82.0
+margin_bottom = 67.0
+custom_styles/normal = SubResource( 3 )
+text = "Part 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 9.0
-margin_top = 54.0
+margin_top = -56.1012
 margin_right = -7.0
-margin_bottom = 90.0
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+margin_bottom = -20.1012
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 value = 40.0
 percent_visible = false

@@ -1,13 +1,8 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://actors/entity/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/ui/level1story/08.jpg" type="Texture" id=2]
-[ext_resource path="res://actors/ui/SpeechBubble.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/detectors/SpeechDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/scene/01.jpg" type="Texture" id=5]
-[ext_resource path="res://assets/bubbles/003.png" type="Texture" id=6]
-[ext_resource path="res://assets/bubbles/002.png" type="Texture" id=7]
-[ext_resource path="res://assets/bubbles/004.png" type="Texture" id=8]
 [ext_resource path="res://actors/detectors/VisualStoryTrigger.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/Level1.gd" type="Script" id=10]
 [ext_resource path="res://actors/ui/SlideshowHolder.tscn" type="PackedScene" id=11]
@@ -19,18 +14,54 @@
 [ext_resource path="res://assets/ui/level1story/012.jpg" type="Texture" id=17]
 [ext_resource path="res://assets/ui/level1story/010_1.jpg" type="Texture" id=18]
 [ext_resource path="res://assets/scene/01_top.png" type="Texture" id=19]
+[ext_resource path="res://assets/ui/level1story/02.jpg" type="Texture" id=20]
+[ext_resource path="res://assets/ui/level1story/04.jpg" type="Texture" id=21]
+[ext_resource path="res://assets/ui/level1story/06.jpg" type="Texture" id=22]
+[ext_resource path="res://assets/ui/level1story/03.jpg" type="Texture" id=23]
+[ext_resource path="res://assets/ui/level1story/05.jpg" type="Texture" id=24]
+[ext_resource path="res://scenes/Loading.tscn" type="PackedScene" id=25]
+[ext_resource path="res://actors/ui/Menu.tscn" type="PackedScene" id=26]
+[ext_resource path="res://resources/styles/comici.ttf" type="DynamicFontData" id=27]
+[ext_resource path="res://assets/ui/arrow.png" type="Texture" id=28]
+[ext_resource path="res://scenes/levels/AnimationPlayer.gd" type="Script" id=29]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 66.14, 95.205 )
+[sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 21.2585, 95.205 )
+[sub_resource type="DynamicFont" id=6]
+size = 18
+font_data = ExtResource( 27 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 106.036, 95.205 )
-
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 15.1402, 333.598 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "indicator"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("arrow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("arrow:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 512.586, 198.269 ), Vector2( 753.274, 198.269 ) ]
+}
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 10 )
@@ -44,6 +75,51 @@ margin_right = 961.65
 margin_bottom = 571.0
 textures_arr = [ ExtResource( 16 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 12 ) ]
 level_id = "Level1"
+is_last = true
+towards_level_id = "Level2"
+
+[node name="SlideshowHolder2" parent="CanvasLayer" instance=ExtResource( 11 )]
+margin_left = 110.65
+margin_top = 24.0
+margin_right = 961.65
+margin_bottom = 571.0
+textures_arr = [ ExtResource( 20 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 22 ) ]
+slide_id = 1
+level_id = "Level1"
+
+[node name="Loading" parent="CanvasLayer" instance=ExtResource( 25 )]
+visible = false
+margin_left = 257.0
+margin_top = 207.0
+margin_right = 850.0
+margin_bottom = 335.0
+
+[node name="Menu" parent="CanvasLayer" instance=ExtResource( 26 )]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
+margin_left = 175.794
+margin_top = 510.381
+margin_right = 647.794
+margin_bottom = 566.381
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+anchor_right = 1.0
+margin_left = 16.6677
+margin_top = 6.34961
+margin_right = -27.3323
+margin_bottom = 46.3496
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Mbambi went to go sit on her bed"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Area1" type="Node2D" parent="."]
 position = Vector2( -719.835, 0 )
@@ -62,7 +138,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="Area1" instance=ExtResource( 1 )]
-position = Vector2( 984.127, 336.153 )
+position = Vector2( 969.832, 336.153 )
 
 [node name="Camera2D" parent="Area1/Player" index="2"]
 position = Vector2( -0.512939, -40.6013 )
@@ -80,56 +156,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SpeechBubble" parent="Area1" instance=ExtResource( 3 )]
-visible = false
-margin_left = 1011.22
-margin_top = 92.0367
-margin_right = 1191.22
-margin_bottom = 210.037
-texture = ExtResource( 7 )
-speech_id = "sp_1"
-
-[node name="SpeechBubble2" parent="Area1" instance=ExtResource( 3 )]
-visible = false
-margin_left = 1130.94
-margin_top = 141.054
-margin_right = 1295.94
-margin_bottom = 243.054
-texture = ExtResource( 6 )
-speech_id = "sp_2"
-
-[node name="SpeechBubble3" parent="Area1" instance=ExtResource( 3 )]
-visible = false
-margin_left = 1290.23
-margin_top = 115.31
-margin_right = 1454.23
-margin_bottom = 238.31
-texture = ExtResource( 8 )
-speech_id = "sp_3"
-
-[node name="Area2D" parent="Area1" instance=ExtResource( 4 )]
-position = Vector2( 1221.51, 407.225 )
-speech_id = "sp_1"
-
-[node name="CollisionShape2D" parent="Area1/Area2D" index="0"]
-shape = SubResource( 1 )
-
-[node name="Area2D2" parent="Area1" instance=ExtResource( 4 )]
-position = Vector2( 1374.05, 407.225 )
-speech_id = "sp_2"
-
-[node name="CollisionShape2D" parent="Area1/Area2D2" index="0"]
-shape = SubResource( 2 )
-
-[node name="Area2D3" parent="Area1" instance=ExtResource( 4 )]
-position = Vector2( 1549.9, 404.627 )
-speech_id = "sp_3"
-
-[node name="CollisionShape2D" parent="Area1/Area2D3" index="0"]
-shape = SubResource( 3 )
-
 [node name="VisualStoryTrigger2" parent="Area1" instance=ExtResource( 9 )]
 position = Vector2( 1295.22, 281.276 )
+
+[node name="VisualStoryTrigger3" parent="Area1" instance=ExtResource( 9 )]
+position = Vector2( 1514.69, 356.957 )
+input_pickable = false
+
+[node name="VisualStoryTrigger4" parent="Area1" instance=ExtResource( 9 )]
+position = Vector2( 1357.44, 354.434 )
+input_pickable = false
+slide_id = 1
 
 [node name="TopLeft" type="Position2D" parent="."]
 position = Vector2( 142.428, 1.59661 )
@@ -142,16 +179,24 @@ position = Vector2( 139.693, 315.254 )
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2( 793.703, 315.254 )
+position = Vector2( 816.407, 315.254 )
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
+
+[node name="arrow" type="Sprite" parent="."]
+visible = false
+position = Vector2( 753.274, 198.269 )
+rotation = 3.14159
+scale = Vector2( 0.575701, 0.575701 )
+texture = ExtResource( 28 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/indicator = SubResource( 7 )
+script = ExtResource( 29 )
 
 [editable path="Area1/Player"]
-[editable path="Area1/Area2D"]
-[editable path="Area1/Area2D2"]
-[editable path="Area1/Area2D3"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/sprites/player/idle/001.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/player/run/001.png" type="Texture" id=2]
@@ -16,9 +16,10 @@
 [ext_resource path="res://assets/sprites/player/run/010.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/player/run/014.png" type="Texture" id=15]
 [ext_resource path="res://assets/sprites/player/run/005.png" type="Texture" id=16]
+[ext_resource path="res://sound/sfx/FootStepGeneric2.wav" type="AudioStream" id=17]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 37.9352
+radius = 27.8918
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -66,5 +67,9 @@ collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource( 3 )
+
+[node name="Footstep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+bus = "SFX"
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
