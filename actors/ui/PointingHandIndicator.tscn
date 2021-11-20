@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/ui/hand.png" type="Texture" id=1]
+[ext_resource path="res://scripts/actors/PointingHandIndicator.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "pointing_hand_indicator"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.508508, 0.508508 ), Vector2( 0.415523, 0.415523 ), Vector2( 0.509, 0.509 ) ]
+}
+
+[node name="Sprite" type="Sprite"]
+scale = Vector2( 0.508508, 0.508508 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/pointing_hand_indicator = SubResource( 1 )
