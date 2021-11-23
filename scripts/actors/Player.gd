@@ -24,6 +24,8 @@ func _physics_process(delta):
 		elif velocity.x < 0:
 			$Sprite.play("run")
 			$Sprite.flip_h = true
+		else:
+			$Sprite.play("idle")
 		
 		velocity = move_and_slide(velocity * move_speed)
 		if velocity.x != 0 && !$Footstep.playing && foot_active:
@@ -59,4 +61,3 @@ func set_camera_bounds(top_left: Vector2, bottom_right: Vector2):
 
 func _on_Sprite_animation_finished():
 	foot_active = true
-	$Sprite.play("idle")

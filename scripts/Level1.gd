@@ -5,5 +5,5 @@ signal arrow_show
 
 
 func _ready():
-	pass
+	$"/root/Music".play()
 #	$Area1/Player.set_camera_bounds($TopLeft.global_position, $BottomRight.global_position)

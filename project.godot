@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 ManagerGameManager="*res://scripts/globals/Manager_GameManager.gd"
 Click="*res://sound/global/Click.tscn"
 SwooshSfx="*res://sound/global/SwooshSFX.tscn"
+Music="*res://sound/music/Music.tscn"
 
 [display]
 

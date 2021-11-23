@@ -27,6 +27,7 @@ func _process(delta):
 
 
 func load_level_activate(level_id: String):
+	$"/root/Music".stop()
 	if level_id == "MainMenu":
 		main_menu_scene()
 		return

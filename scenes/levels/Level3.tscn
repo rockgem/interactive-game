@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/scene/background-02.jpg" type="Texture" id=1]
 [ext_resource path="res://actors/detectors/VisualStoryTrigger.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://assets/ui/level3story/14.jpg" type="Texture" id=18]
 [ext_resource path="res://assets/ui/level3story/10.jpg" type="Texture" id=19]
 [ext_resource path="res://actors/ui/PointingHandIndicator.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scripts/Level1.gd" type="Script" id=21]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -33,6 +34,7 @@ border_color = Color( 0, 0, 0, 1 )
 radius = 190.782
 
 [node name="Level3" type="Node2D"]
+script = ExtResource( 21 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -45,6 +47,7 @@ margin_top = 24.0
 margin_right = 961.65
 margin_bottom = 571.0
 textures_arr = [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 18 ) ]
+level_id = "Level3"
 is_last = true
 towards_level_id = "MainMenu"
 
