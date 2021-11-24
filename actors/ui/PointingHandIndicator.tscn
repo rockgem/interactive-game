@@ -1,9 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/ui/hand.png" type="Texture" id=1]
 [ext_resource path="res://scripts/actors/PointingHandIndicator.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=4]
 resource_name = "pointing_hand_indicator"
 loop = true
 tracks/0/type = "value"
@@ -16,8 +16,20 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.508508, 0.508508 ), Vector2( 0.415523, 0.415523 ), Vector2( 0.509, 0.509 ) ]
+"values": [ Vector2( 0.508508, 0.508508 ), Vector2( 0.45, 0.45 ), Vector2( 0.509, 0.509 ) ]
 }
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.937255, 0.937255, 0.937255, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
 
 [node name="Sprite" type="Sprite"]
 scale = Vector2( 0.508508, 0.508508 )
@@ -25,13 +37,14 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/pointing_hand_indicator = SubResource( 1 )
+anims/pointing_hand_indicator = SubResource( 4 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -119.117
 margin_top = 154.967
 margin_right = 117.883
 margin_bottom = 234.967
+custom_styles/normal = SubResource( 5 )
 text = "Click Me"
 align = 1
 valign = 1
