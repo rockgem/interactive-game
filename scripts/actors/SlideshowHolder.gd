@@ -27,6 +27,7 @@ func increase(num: int, num_identifier: int):
 	current_index = num
 	
 	$Label2.show()
+	$Label3.show()
 	
 	if num <= 0:
 		ManagerGameManager.emit_signal("visual_story_deactivate")
@@ -156,4 +157,7 @@ func _on_SlideshowHolder_gui_input(event):
 	if can_click:
 		if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 			increase(current_index + 1, 1)
+			$"/root/SwooshSfx".play()
+		elif event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_RIGHT:
+			increase(current_index - 1, 1)
 			$"/root/SwooshSfx".play()

@@ -12,9 +12,9 @@
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxFlat" id=3]
-content_margin_left = 5.0
-content_margin_right = 5.0
-content_margin_top = 5.0
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
 content_margin_bottom = 5.0
 bg_color = Color( 0.937255, 0.937255, 0.937255, 1 )
 border_width_left = 5
@@ -792,7 +792,6 @@ animations = [ {
 } ]
 
 [node name="SlideshowHolder" type="Control"]
-visible = false
 margin_right = 811.0
 margin_bottom = 525.0
 script = ExtResource( 1 )
@@ -870,6 +869,20 @@ margin_right = -87.4119
 margin_bottom = -27.1951
 custom_styles/normal = SubResource( 3 )
 text = "Left-click >"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 82.1095
+margin_top = -77.1951
+margin_right = 268.109
+margin_bottom = -27.1951
+custom_styles/normal = SubResource( 3 )
+text = "< Right-Click"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -26,3 +26,15 @@ script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/pointing_hand_indicator = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -119.117
+margin_top = 154.967
+margin_right = 117.883
+margin_bottom = 234.967
+text = "Click Me"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

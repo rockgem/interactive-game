@@ -81,10 +81,10 @@ __meta__ = {
 [node name="Panel" parent="HBoxContainer" instance=ExtResource( 1 )]
 
 [node name="TextureRect" parent="HBoxContainer/Panel/Panel" index="0"]
-margin_left = -94.0
-margin_top = -58.5
-margin_right = 6.0
-margin_bottom = 41.5
+margin_left = -97.5837
+margin_top = -109.405
+margin_right = 148.416
+margin_bottom = 136.595
 texture = ExtResource( 3 )
 
 [node name="Label" parent="HBoxContainer/Panel" index="1"]
@@ -119,10 +119,10 @@ margin_right = 728.0
 level_id = "Level3"
 
 [node name="TextureRect" parent="HBoxContainer/Panel3/Panel" index="0"]
-margin_left = -120.953
-margin_top = -130.545
-margin_right = 136.047
-margin_bottom = 126.455
+margin_left = -50.0
+margin_top = -117.0
+margin_right = 209.0
+margin_bottom = 142.0
 texture = ExtResource( 6 )
 
 [node name="Label" parent="HBoxContainer/Panel3" index="1"]
