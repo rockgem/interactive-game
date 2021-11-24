@@ -50,7 +50,6 @@ margin_left = 110.65
 margin_top = 24.0
 margin_right = 961.65
 margin_bottom = 571.0
-mouse_filter = 0
 textures_arr = [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 18 ) ]
 level_id = "Level3"
 is_last = true
