@@ -26,8 +26,8 @@ func increase(num: int, num_identifier: int):
 	$TextureRect.rect_position = Vector2.ZERO
 	current_index = num
 	
-	$Label2.show()
-	$Label3.show()
+	$Go.show()
+	$Back.show()
 	
 	if num <= 0:
 		ManagerGameManager.emit_signal("visual_story_deactivate")
@@ -120,7 +120,7 @@ func visual_story_trigger(id: int):
 func visual_story_deactivate():
 	if slide_id == 1:
 		ManagerGameManager.emit_signal("arrow_indicator")
-	$Label2.hide()
+	$Go.hide()
 	$TextureRect.texture = null
 	can_click = false
 	current_index = 0
@@ -161,3 +161,13 @@ func _on_SlideshowHolder_gui_input(event):
 		elif event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_RIGHT:
 			increase(current_index - 1, 1)
 			$"/root/SwooshSfx".play()
+
+
+func _on_Go_pressed():
+	increase(current_index + 1, 1)
+	$"/root/SwooshSfx".play()
+
+
+func _on_Back_pressed():
+	increase(current_index - 1, 1)
+	$"/root/SwooshSfx".play()

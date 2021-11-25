@@ -9,15 +9,15 @@
 [ext_resource path="res://assets/ui/level2story/003.jpg" type="Texture" id=7]
 [ext_resource path="res://assets/ui/level2story/004_1.jpg" type="Texture" id=8]
 [ext_resource path="res://assets/ui/level2story/005.jpg" type="Texture" id=9]
-[ext_resource path="res://assets/ui/level2story/009.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui/level2story/009_1.jpg" type="Texture" id=10]
 [ext_resource path="res://assets/ui/level2story/005_1.jpg" type="Texture" id=11]
-[ext_resource path="res://assets/ui/level2story/009_1.png" type="Texture" id=12]
+[ext_resource path="res://assets/ui/level2story/009.png" type="Texture" id=12]
 [ext_resource path="res://assets/ui/level2story/009_2.jpg" type="Texture" id=13]
 [ext_resource path="res://actors/ui/Menu.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/Loading.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scripts/Level1.gd" type="Script" id=16]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.1402, 333.598 )
 
 [node name="Level2" type="Node2D"]
@@ -43,7 +43,7 @@ margin_left = 138.79
 margin_top = 32.8433
 margin_right = 949.79
 margin_bottom = 557.843
-textures_arr = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 13 ) ]
+textures_arr = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 13 ) ]
 level_id = "Level2"
 is_last = true
 towards_level_id = "Level3"
@@ -75,11 +75,11 @@ position = Vector2( 139.693, 315.254 )
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( 914.192, 315.254 )
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
