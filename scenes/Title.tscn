@@ -92,7 +92,7 @@ margin_left = -7.0
 margin_top = 149.031
 margin_right = 6.0
 margin_bottom = 183.031
-text = "Part 1 Mbambi"
+text = "Part 1 Mbabi"
 
 [node name="Panel2" parent="HBoxContainer" instance=ExtResource( 1 )]
 margin_left = 264.0
@@ -131,6 +131,22 @@ margin_top = 149.031
 margin_right = -9.0
 margin_bottom = 183.031
 text = "Part 3 Neema"
+
+[node name="Credits" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -172.0
+margin_top = -54.0
+margin_right = -14.0
+margin_bottom = -9.0
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
 
 [editable path="HBoxContainer/Panel"]
 [editable path="HBoxContainer/Panel2"]

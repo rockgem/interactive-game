@@ -53,7 +53,7 @@ margin_bottom = 571.0
 textures_arr = [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 18 ) ]
 level_id = "Level3"
 is_last = true
-towards_level_id = "MainMenu"
+towards_level_id = "Credits"
 
 [node name="Loading" parent="CanvasLayer" instance=ExtResource( 8 )]
 visible = false
