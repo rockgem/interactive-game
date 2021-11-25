@@ -92,7 +92,7 @@ align = 1
 margin_top = 33.0
 margin_right = 714.0
 margin_bottom = 62.0
-text = "Riva Jalipa"
+text = "Riva, Jalipa"
 align = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Name"]
@@ -149,6 +149,116 @@ margin_bottom = 62.0
 text = "Mwara Gichanga Liz Orembo & Grace Githaiga"
 align = 1
 
+[node name="NameSwahi" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -358.0
+margin_top = 92.5822
+margin_right = 356.0
+margin_bottom = 591.582
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NameSwahi"]
+margin_right = 714.0
+margin_bottom = 29.0
+text = "Shukrani: "
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NameSwahi"]
+margin_top = 61.0
+margin_right = 714.0
+margin_bottom = 123.0
+
+[node name="Label" type="Label" parent="NameSwahi/VBoxContainer"]
+margin_right = 714.0
+margin_bottom = 29.0
+text = "Kimeandikwa na"
+align = 1
+
+[node name="Label2" type="Label" parent="NameSwahi/VBoxContainer"]
+margin_top = 33.0
+margin_right = 714.0
+margin_bottom = 62.0
+text = "Riva, Jalipa"
+align = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="NameSwahi"]
+margin_top = 155.0
+margin_right = 714.0
+margin_bottom = 217.0
+
+[node name="Label" type="Label" parent="NameSwahi/VBoxContainer5"]
+margin_right = 714.0
+margin_bottom = 29.0
+text = "Kimetafsiriwa na "
+align = 1
+
+[node name="Label2" type="Label" parent="NameSwahi/VBoxContainer5"]
+margin_top = 33.0
+margin_right = 714.0
+margin_bottom = 62.0
+text = "Bonface, Witaba"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="NameSwahi"]
+margin_top = 249.0
+margin_right = 714.0
+margin_bottom = 311.0
+
+[node name="Label" type="Label" parent="NameSwahi/VBoxContainer2"]
+margin_right = 714.0
+margin_bottom = 29.0
+text = "Kimechorwa na "
+align = 1
+
+[node name="Label2" type="Label" parent="NameSwahi/VBoxContainer2"]
+margin_top = 33.0
+margin_right = 714.0
+margin_bottom = 62.0
+text = "Eddy Mwazige & Brandon Ndichu"
+align = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="NameSwahi"]
+margin_top = 343.0
+margin_right = 714.0
+margin_bottom = 405.0
+
+[node name="Label" type="Label" parent="NameSwahi/VBoxContainer3"]
+margin_right = 714.0
+margin_bottom = 29.0
+text = "Watengenezaji Wavuti"
+align = 1
+
+[node name="Label2" type="Label" parent="NameSwahi/VBoxContainer3"]
+margin_top = 33.0
+margin_right = 714.0
+margin_bottom = 62.0
+text = "Safisha Media"
+align = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="NameSwahi"]
+margin_top = 437.0
+margin_right = 714.0
+margin_bottom = 499.0
+
+[node name="Label" type="Label" parent="NameSwahi/VBoxContainer4"]
+margin_right = 714.0
+margin_bottom = 29.0
+text = "Waongoza Mradi"
+align = 1
+
+[node name="Label2" type="Label" parent="NameSwahi/VBoxContainer4"]
+margin_top = 33.0
+margin_right = 714.0
+margin_bottom = 62.0
+text = "Mwara Gichanga, Liz Orembo na Grace Githaiga"
+align = 1
+
 [node name="Buttons" type="HBoxContainer" parent="."]
 visible = false
 anchor_left = 0.5
@@ -180,7 +290,7 @@ margin_left = 459.0
 margin_right = 664.0
 margin_bottom = 47.0
 size_flags_horizontal = 3
-text = "Kiswahili"
+text = "Swahili"
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -197,4 +307,6 @@ margin_right = 279.652
 margin_bottom = 311.743
 
 [connection signal="pressed" from="Buttons/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="Buttons/English" to="." method="_on_English_pressed"]
+[connection signal="pressed" from="Buttons/Kish" to="." method="_on_Kish_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

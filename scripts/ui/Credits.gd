@@ -32,3 +32,13 @@ func _on_Timer_timeout():
 
 func _on_Menu_pressed():
 	ManagerGameManager.emit_signal("load_level_activate", "MainMenu")
+
+
+func _on_English_pressed():
+	$Name.show()
+	$NameSwahi.hide()
+
+
+func _on_Kish_pressed():
+	$Name.hide()
+	$NameSwahi.show()

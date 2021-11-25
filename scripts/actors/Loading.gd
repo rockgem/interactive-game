@@ -11,6 +11,7 @@ func _ready():
 	ManagerGameManager.connect("load_level_activate", self, "load_level_activate")
 	ManagerGameManager.connect("load_main_menu", self, "main_menu_scene")
 	
+	wait_time = 0.0
 	set_process(false)
 
 
