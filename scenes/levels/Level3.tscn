@@ -39,7 +39,7 @@ script = ExtResource( 21 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sprite" parent="CanvasLayer" instance=ExtResource( 20 )]
-position = Vector2( 470.926, 475.683 )
+position = Vector2( 421.313, 404.207 )
 
 [node name="Label" parent="CanvasLayer/Sprite" index="1"]
 text = "Click"
@@ -81,7 +81,7 @@ __meta__ = {
 }
 
 [node name="VisualStoryTrigger" parent="Node2D" instance=ExtResource( 2 )]
-position = Vector2( 461.433, 350.036 )
+position = Vector2( 410.138, 286.128 )
 
 [node name="CollisionShape2D" parent="Node2D/VisualStoryTrigger" index="0"]
 shape = SubResource( 2 )
